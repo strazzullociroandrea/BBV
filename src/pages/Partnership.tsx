@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Handshake, Building2, TrendingUp, Award } from "lucide-react";
+import {Handshake, Building2, TrendingUp, Award, Phone} from "lucide-react";
 
 const Partnership = () => {
   const benefits = [
@@ -154,13 +154,14 @@ const Partnership = () => {
               Contattaci per discutere insieme le opportunità di partnership e trovare la soluzione più adatta alle tue esigenze.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                variant="hero"
-                size="lg"
-                className="bg-primary-foreground text-black-primary hover:bg-primary-foreground/90"
-              >
-                Contatta il Responsabile Partnership
-              </Button>
+                <a href="tel:+393517506557">
+                    <Button
+                        className="text-base font-medium bg-white hover:bg-white/90 transition-transform duration-200 ease-in-out hover:scale-105"
+                        onClick={() => window.scrollTo(0, 0)}
+                    ><Phone className="w-16 h-16 text-red-900" />
+                        <span className="text-red-900">+39 351 750 6557</span>
+                    </Button>
+                </a>
             </div>
           </div>
         </div>
