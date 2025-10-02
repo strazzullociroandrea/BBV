@@ -30,7 +30,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
             <div className="text-2xl font-bold">
-              <span className="text-primary-foreground">BLACK BILLS</span>
+              <span className="text-primary-foreground">BLACK BULLS</span>
               <span className="text-secondary ml-2">VOLLEY</span>
             </div>
           </Link>
@@ -45,34 +45,6 @@ const Navbar = () => {
             >
               Home
             </Link>
-
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent text-primary-foreground hover:text-secondary">
-                    Chi Siamo
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4 bg-black-light border border-red-primary/20">
-                      {chiSiamoItems.map((item) => (
-                        <li key={item.href}>
-                          <NavigationMenuLink asChild>
-                            <Link
-                              to={item.href}
-                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-secondary/10 hover:text-secondary"
-                            >
-                              <div className="text-sm font-medium leading-none text-primary-foreground">
-                                {item.title}
-                              </div>
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
 
             <Link
               to="/corsi"
@@ -101,9 +73,6 @@ const Navbar = () => {
               Partnership
             </Link>
 
-            <Button variant="hero" size="sm" asChild>
-              <Link to="/corsi">Iscriviti Ora</Link>
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -126,19 +95,7 @@ const Navbar = () => {
               >
                 Home
               </Link>
-              <div className="space-y-2">
-                <div className="text-secondary font-medium">Chi Siamo</div>
-                {chiSiamoItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    className="block pl-4 text-primary-foreground hover:text-secondary transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.title}
-                  </Link>
-                ))}
-              </div>
+
               <Link
                 to="/corsi"
                 className="text-primary-foreground hover:text-secondary transition-colors"
@@ -160,11 +117,7 @@ const Navbar = () => {
               >
                 Partnership
               </Link>
-              <Button variant="hero" size="sm" asChild>
-                <Link to="/corsi" onClick={() => setIsOpen(false)}>
-                  Iscriviti Ora
-                </Link>
-              </Button>
+
             </div>
           </div>
         )}
