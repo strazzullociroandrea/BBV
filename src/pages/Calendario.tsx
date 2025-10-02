@@ -1,7 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
-import { Calendar as CalendarIcon, MapPin, Clock } from "lucide-react";
+import {Calendar as CalendarIcon, MapPin, Clock, Phone, Check} from "lucide-react";
+import {Button} from "@/components/ui/button.tsx";
 
 const Calendario = () => {
   const matches = [
@@ -47,24 +48,39 @@ const Calendario = () => {
     },
   ];
 
-  const results = [
-    {
-      date: "10 Gen 2025",
-      home: "Black Bills Volley",
-      scoreHome: 3,
-      away: "Volley Team Gialli",
-      scoreAway: 1,
-      category: "Serie C Femminile",
-    },
-    {
-      date: "8 Gen 2025",
-      home: "Black Bills Volley U18",
-      scoreHome: 3,
-      away: "Junior Volley Academy",
-      scoreAway: 0,
-      category: "Under 18",
-    },
-  ];
+  const categorie = [
+      {
+          name: "1° Div. Maschile",
+          imgPath: "",
+          link: "https://www.sol.milano.federvolley.it/sol/webRisultati/Calendari.aspx?serie=1DM&fase=1&girone=C&squadra=474&stagione=2023"
+      },
+      {
+          name: "Open Maschile",
+          imgPath: "",
+          link: "https://volley.pgsmilano.org/calendari"
+      },
+      {
+          name: "Under 20 femminile",
+          imgPath: "",
+          link: "https://volley.pgsmilano.org/calendari"
+      },
+      {
+          name: "Under 16 femminile",
+          imgPath: "",
+          link: "https://volley.pgsmilano.org/calendari"
+      },
+      {
+          name: "Under 12",
+          imgPath: "",
+          link: "https://volley.pgsmilano.org/calendari"
+      },
+      {
+          name: "Minivolley",
+          imgPath: "",
+          link: "https://www.sol.milano.federvolley.it/campionatiris"
+      }
+
+  ]
 
   return (
     <div className="min-h-screen bg-background">
@@ -76,97 +92,58 @@ const Calendario = () => {
             Calendario <span className="text-secondary">Partite</span>
           </h1>
           <p className="text-xl text-muted-foreground text-center max-w-3xl mx-auto mb-16">
-            Vieni a sostenere le nostre squadre! Qui trovi tutte le prossime partite e i risultati recenti.
+            Vieni a sostenere le nostre squadre!
           </p>
 
           {/* Prossime Partite */}
           <div className="mb-16">
             <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
               <CalendarIcon className="text-secondary" />
-              Prossime Partite
+              Visualizza il calendario della tua squadra
             </h2>
-            <div className="space-y-4">
-              {matches.map((match, index) => (
-                <Card
-                  key={index}
-                  className="border-red-primary/20 hover:border-secondary hover:shadow-red transition-all"
-                >
-                  <CardContent className="pt-6">
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          <span className="text-sm font-semibold text-secondary bg-secondary/10 px-3 py-1 rounded-full">
-                            {match.category}
-                          </span>
-                        </div>
-                        <div className="text-xl font-semibold mb-2">
-                          {match.home} <span className="text-muted-foreground">vs</span> {match.away}
-                        </div>
-                        <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-                          <div className="flex items-center gap-2">
-                            <CalendarIcon size={16} className="text-secondary" />
-                            {match.date}
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <Clock size={16} className="text-secondary" />
-                            {match.time}
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <MapPin size={16} className="text-secondary" />
-                            {match.location}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+              <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${categorie.length/2} gap-6 mb-16`}>
+                {categorie.map((categoria, index) => {
+                  const imgSrc = categoria.imgPath && categoria.imgPath.trim() !== "" ? categoria.imgPath : "/placeholder.svg";
+                  return (
+                    <Card
+                      key={index}
+                      className="relative border-red-primary/20 hover:shadow-red transition-all flex flex-col items-center p-4"
+                      onClick={() => window.open(categoria.link, "_blank")}
+                    >
+                      <img
+                        src={imgSrc}
+                        alt={categoria.name}
+                        className="w-24 h-24 object-cover rounded-full shadow mb-4 bg-muted"
+                      />
+                      <CardContent className="pt-2 text-center">
+                        <h3 className="text-xl font-semibold mb-2">{categoria.name}</h3>
+                        <a href={categoria.link} className="text-red-900 hover:underline" target="_blank" rel="noopener noreferrer">
+                          Visualizza il calendario
+                        </a>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+              </div>
           </div>
 
-          {/* Risultati Recenti */}
-          <div>
-            <h2 className="text-3xl font-bold mb-8">
-              Ultimi <span className="text-secondary">Risultati</span>
-            </h2>
-            <div className="space-y-4">
-              {results.map((result, index) => (
-                <Card
-                  key={index}
-                  className="border-red-primary/20 hover:shadow-red transition-all"
-                >
-                  <CardContent className="pt-6">
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          <span className="text-sm font-semibold text-secondary bg-secondary/10 px-3 py-1 rounded-full">
-                            {result.category}
-                          </span>
-                          <span className="text-sm text-muted-foreground">{result.date}</span>
-                        </div>
-                        <div className="flex items-center gap-4 text-xl font-semibold">
-                          <span>{result.home}</span>
-                          <span className="text-3xl text-secondary">
-                            {result.scoreHome} - {result.scoreAway}
-                          </span>
-                          <span>{result.away}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
 
-          <div className="mt-16 bg-gradient-card rounded-lg p-12 text-center">
-            <h2 className="text-3xl font-bold text-primary-foreground mb-4">
-              Vieni a Tifare per Noi!
-            </h2>
-            <p className="text-primary-foreground/90 max-w-2xl mx-auto text-lg">
-              L'ingresso alle partite casalinghe è gratuito. Porta la tua famiglia e i tuoi amici a sostenere il Black Bills Volley!
-            </p>
-          </div>
+            <div className="mt-16 bg-gradient-card rounded-lg p-12 text-center">
+                <h2 className="text-3xl font-bold text-primary-foreground mb-4">
+                    Prova Gratuita
+                </h2>
+                <p className="text-primary-foreground/90 max-w-2xl mx-auto text-lg mb-6">
+                    Non sei sicuro? Vieni a provare gratuitamente per una settimana! Contattaci per prenotare la tua lezione di prova.
+                </p>
+                <a href="tel:+393517506557">
+                    <Button
+                        className="text-base font-medium bg-white hover:bg-white/90 transition-transform duration-200 ease-in-out hover:scale-105"
+                        onClick={() => window.scrollTo(0, 0)}
+                    ><Phone className="w-16 h-16 text-red-900" />
+                        <span className="text-red-900">+39 351 750 6557</span>
+                    </Button>
+                </a>
+            </div>
         </div>
       </section>
 

@@ -20,7 +20,7 @@ const Corsi = () => {
       name: "Pre-agonismo",
       years: "7-12 anni",
       features: [
-        "Dal minimvolley all'Under 12",
+        "Dal minivolley all'Under 12",
         "Ambiente coinvolgente e formativo",
         "Competenze tecniche e tattiche",
         "Sviluppo del lavoro di squadra",
@@ -48,7 +48,7 @@ const Corsi = () => {
             I Nostri <span className="text-secondary">Corsi</span>
           </h1>
           <p className="text-xl text-muted-foreground text-center max-w-3xl mx-auto mb-16">
-            Scegli il corso più adatto a te. Dalla scuola minivolley ai corsi competitivi, abbiamo la soluzione perfetta per ogni età e livello.
+            Scegli il corso più adatto a te. Dalla scuola minivolley ai corsi agonistici, abbiamo la soluzione perfetta per ogni età e livello.
           </p>
 
           <div   className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${courses.length} gap-6 mb-16`}>
