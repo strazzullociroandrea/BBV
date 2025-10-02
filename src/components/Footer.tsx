@@ -22,26 +22,31 @@ const Footer = () => {
                         <h3 className="text-secondary font-semibold mb-4">Link Veloci</h3>
                         <ul className="space-y-2">
                             <li>
-                                <Link to="/" className="text-muted-foreground hover:text-secondary transition-colors">
+                                <Link to="/" className="text-muted-foreground hover:text-secondary transition-colors"
+                                      onClick={() => window.scrollTo(0, 0)}>
                                     Home
                                 </Link>
                             </li>
                             <li>
                                 <Link to="/corsi"
-                                      className="text-muted-foreground hover:text-secondary transition-colors">
+                                      className="text-muted-foreground hover:text-secondary transition-colors"
+                                      onClick={() => window.scrollTo(0, 0)}>
                                     I Corsi
                                 </Link>
                             </li>
                             <li>
                                 <Link to="/calendario"
-                                      className="text-muted-foreground hover:text-secondary transition-colors">
+                                      className="text-muted-foreground hover:text-secondary transition-colors"
+                                      onClick={() => window.scrollTo(0, 0)}>
                                     Calendario
                                 </Link>
                             </li>
 
                             <li>
                                 <Link to="/partnership"
-                                      className="text-muted-foreground hover:text-secondary transition-colors">
+                                      className="text-muted-foreground hover:text-secondary transition-colors"
+                                      onClick={() => window.scrollTo(0, 0)}
+                                >
                                     Partenership
                                 </Link>
                             </li>
