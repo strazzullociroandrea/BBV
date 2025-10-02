@@ -63,7 +63,7 @@ const Footer = () => {
                                 <span className="text-sm">info@blackbullsvolley.it</span>
                             </li>
                             <li className="flex items-center gap-2 text-muted-foreground">
-                                <MapPin size={16} className="text-secondary"/>
+                                <MapPin size={23} className="text-secondary"/>
                                 <span className="text-sm">Sede operativa: Via Leonardo Da Vinci, 1 Cologno Monzese (MI)</span>
                             </li>
                             <li className="flex items-center gap-2 text-muted-foreground">
@@ -98,7 +98,7 @@ const Footer = () => {
                 </div>
 
                 <div className="mt-12 pt-8 border-t border-red-primary/20 text-center text-muted-foreground text-sm">
-                    <p>&copy; {new Date().getFullYear()} Club Black Bills Volley. Tutti i diritti riservati.</p>
+                    <p>&copy; {new Date().getFullYear()} Black Bulls Volley. Tutti i diritti riservati.</p>
                 </div>
             </div>
         </footer>

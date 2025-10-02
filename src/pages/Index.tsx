@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Trophy, Users, Calendar, Award } from "lucide-react";
+import {Trophy, Users, Calendar, Award, Phone} from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import heroImage from "@/assets/hero-volleyball.jpg";
@@ -109,7 +109,7 @@ const Index = () => {
             <p className="text-lg text-muted-foreground mb-6 text-center">
               Prenota una{" "}
               <span className="font-semibold text-secondary">prova gratuita</span>{" "}
-              e vivi l’esperienza Black Bulls Volley.
+              e vivi l’esperienza Black Bulls.
               <br />
               Il nostro staff ti accoglierà con professionalità e entusiasmo.
             </p>
@@ -155,9 +155,13 @@ const Index = () => {
                 </div>
               </div>
             </div>
-            <Button variant="hero" size="lg" asChild>
-              <Link to="/corsi">Iscriviti Ora</Link>
-            </Button>
+              <a href="tel:+393517506557">
+                  <Button
+                      className="text-base font-medium bg-red-primary hover:bg-red-primary/90 transition-transform duration-200 ease-in-out hover:scale-105"
+                  ><Phone className="w-16 h-16 text-white" />
+                     Chiamaci ora
+                  </Button>
+              </a>
           </div>
         </div>
       </section>
